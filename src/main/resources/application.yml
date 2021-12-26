@@ -1,0 +1,27 @@
+server:
+  port: 8080
+  error:
+    whitelabel:
+      enabled: false
+---
+spring:
+  profiles:
+    active: dev
+  devtools:
+    restart:
+      enabled: true  #设置开启热部署
+      additional-paths: src/main/java #重启目录
+      exclude: WEB-INF/**
+
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/user_registration
+    username: root
+    password: 123456
+  jpa:
+    hibernate.ddl-auto: update
+    generate-ddl: true
+    show-sql: true
+
+mybatis:
+  mapper-locations: classpath*:mybatis/*.xml
